@@ -181,7 +181,7 @@ while(query.lower() not in goodbye):
         speak('What would you like to know?')
         string = takeCommand()
         tell_weather(string)
-        url = 'http://api.openweathermap.org/data/2.5/weather?appid=c140dd2e860dc97628ab3a2397aa6183&q='+new_arr2[-1]
+        url = f'http://api.openweathermap.org/data/2.5/weather?appid={os.environ.get('API_KEY')}&q='+new_arr2[-1]
         response = urllib.request.urlopen(url)
         string = response.read().decode('utf-8')
         json_obj = json.loads(string)
@@ -199,17 +199,17 @@ while(query.lower() not in goodbye):
                 speak(q+" maximum temperature is "+ p +" degree celcius")
                 print(q+" maximum temperature is "+ p +" degree celcius")
             elif r == "temp_min":
-	            speak(q+" minimum temperature is "+ p +" degree celcius")
-	            print(q+" minimum temperature is "+ p +" degree celcius")
+                speak(q+" minimum temperature is "+ p +" degree celcius")
+                print(q+" minimum temperature is "+ p +" degree celcius")
             elif r == "humidity":
-	            speak(q+" humidity is "+ p)
-	            print(q+" humidity is "+ p)
+                speak(q+" humidity is "+ p)
+                print(q+" humidity is "+ p)
             elif r == "temp":
-	            speak(q+" temperature is "+ p +" degree celcius")
-	            print(q+" temperature is "+ p +" degree celcius")
+                speak(q+" temperature is "+ p +" degree celcius")
+                print(q+" temperature is "+ p +" degree celcius")
             elif r == "pressure":
-	            speak(q+" pressure is "+ p +" newton meter")
-	            print(q+" pressure is "+ p +" newton meter")
+                speak(q+" pressure is "+ p +" newton meter")
+                print(q+" pressure is "+ p +" newton meter")
     elif query.lower() in times:
         e = datetime.datetime.now()
         print ("The time is now: = %s:%s:%s" % (e.hour, e.minute, e.second))
